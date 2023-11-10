@@ -3,7 +3,7 @@ const items = [];
 let i;
 
 for (i = 0; i < 100; i++) {
-  items.push({ id: i, text: 'Player' + i });
+  items.push({ id: i, text: 'Attack' + i});
 }
 </script>
 
@@ -15,7 +15,7 @@ for (i = 0; i < 100; i++) {
       <img class="back" src="./images/arrow_back_FILL0_wght400_GRAD0_opsz24.svg"/>
     </div>
     <div class="title">
-      <h1>RANKING</h1>
+      <h1>BACKPACK</h1>
     </div>
     <div class="scroll-list">
       <a href="#" v-for="item in items" :key="item.id">
@@ -94,9 +94,5 @@ html, body{
 
 .scroll-list a:last-child {
   border-bottom: none; /* Remove the border from the last item */
-}
-
-.scroll-list a:hover {
-  background-color: #777;
 }
 </style>
