@@ -27,29 +27,30 @@
           <h2 :class="{'player-name-green': index === 0, 'player-name-red': index === 1}">{{ player.name }}</h2>
           <progress :value="player.hp" max="30"></progress>
           <span>{{ player.hp }}/30HP</span>
-          <ol>
-            <li v-for="attack in player.attacks" :key="attack" @click="attackClicked(attack)">
-              {{ attack }}
-            </li>
-          </ol>
         </div>
       </div>
+      <ol>
+        <CustomButton type="button">PLAY</CustomButton>
+      </ol>
     </footer>
   </section>
 </template>
 
 <script>
 
-//init data to display
+import CustomButton from "./components/CustomButton.vue";
+
+/* here we should load the record from memory and play it after user presses play*/
 export default {
 
   name: 'Game',
+  components: {CustomButton},
   data() {
     return {
       grid: this.createGrid(10, 10),
       players: [
-        { name: 'MANOLITO', hp: 25, attacks: ['Fireball', 'Magic Shield', 'Pit of Doom'], position: { x: 1, y: 1 }, direction: 'right', rotation: 180,},
-        { name: 'PEPITO', hp: 10, attacks: ['Fireball', 'Magic Shield', 'Pit of Doom'], position: { x: 8, y: 8 }, direction: 'down',  rotation: 270,},
+        { name: 'MANOLITO', hp: 30, position: { x: 1, y: 1 }, direction: 'right', rotation: 90,},
+        { name: 'PEPITTtO', hp: 30, position: { x: 3, y: 5 }, direction: 'down',  rotation: 270,},
       ],
 
     };
@@ -96,21 +97,12 @@ export default {
       return directions[rotation];
     },
 
-    attackClicked(attack) {
-      ///What happens when the attack gets clicked onto
-    },
   },
 };
 </script>
 
 
 <style scoped>
-
-/*assuming we click to perform attack*/
-ol li {
-  cursor: pointer;
-}
-
 
 section {
   background: #133973;
@@ -189,21 +181,6 @@ td.filled::after {
   color: #a82828;
 }
 
-
-.player-circle {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  border-radius: 100%;
-}
-
-.green {
-  background-color: #166D1A;
-}
-
-.red {
-  background-color: #731313;
-}
 
 progress {
   width: 100%;
