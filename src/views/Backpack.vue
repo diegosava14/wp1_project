@@ -3,7 +3,15 @@ const items = [];
 let i;
 
 for (i = 0; i < 100; i++) {
-  items.push({ id: i, text: 'Attack' + i});
+  items.push({
+    id: i,
+    text: {
+      attack: 'Attack' + i,
+      power: 'Power --> ' + 1,
+      equipped: 'Equipped --> YES',
+      onSale: 'On Sale --> NO'
+    }
+  });
 }
 </script>
 
@@ -20,9 +28,14 @@ for (i = 0; i < 100; i++) {
       </header>
       <main>
         <div class="scroll-list">
-          <a href="#" v-for="item in items" :key="item.id">
-            {{ item.text }}
-          </a>
+          <div v-for="item in items" :key="item.id" class="item-container">
+            <a href="#">
+              <p class="item-info">{{ item.text.attack }}</p>
+              <p class="item-info">{{ item.text.power }}</p>
+              <p class="item-info">{{ item.text.equipped }}</p>
+              <p class="item-info">{{ item.text.onSale }}</p>
+            </a>
+          </div>
         </div>
       </main>
     </body>
@@ -95,6 +108,10 @@ body {
 }
 
 .scroll-list a:last-child {
-  border-bottom: none; /* Remove the border from the last item */
+  border-bottom: none;
+}
+
+.item-container {
+  margin-bottom: 6px;
 }
 </style>
