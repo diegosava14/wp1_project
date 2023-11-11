@@ -3,27 +3,42 @@ const items = [];
 let i;
 
 for (i = 0; i < 100; i++) {
-  items.push({ id: i, text: 'Attack' + i});
+  items.push({
+    id: i,
+    text: {
+      attack: 'Attack' + i,
+      power: 'Power --> ' + 1,
+      equipped: 'Equipped --> YES',
+      onSale: 'On Sale --> NO'
+    }
+  });
 }
 </script>
 
 <template>
   <html>
-  <body>
-  <div class="container">
-    <div class="actionButtons">
-      <img class="back" src="./images/arrow_back_FILL0_wght400_GRAD0_opsz24.svg"/>
-    </div>
-    <div class="title">
-      <h1>BACKPACK</h1>
-    </div>
-    <div class="scroll-list">
-      <a href="#" v-for="item in items" :key="item.id">
-        {{ item.text }}
-      </a>
-    </div>
-  </div>
-  </body>
+    <body>
+      <header>
+        <div class="actionButtons">
+          <img class="back" src="./images/arrow_back_FILL0_wght400_GRAD0_opsz24.svg"/>
+        </div>
+        <div class="title">
+          <h1>BACKPACK</h1>
+        </div>
+      </header>
+      <main>
+        <div class="scroll-list">
+          <div v-for="item in items" :key="item.id" class="item-container">
+            <a href="#">
+              <p class="item-info">{{ item.text.attack }}</p>
+              <p class="item-info">{{ item.text.power }}</p>
+              <p class="item-info">{{ item.text.equipped }}</p>
+              <p class="item-info">{{ item.text.onSale }}</p>
+            </a>
+          </div>
+        </div>
+      </main>
+    </body>
   </html>
 </template>
 
@@ -44,7 +59,7 @@ html, body{
   margin-bottom: 40px;
 }
 
-.container {
+body {
   background: #133973;
   position:absolute;
   top:0;
@@ -93,6 +108,10 @@ html, body{
 }
 
 .scroll-list a:last-child {
-  border-bottom: none; /* Remove the border from the last item */
+  border-bottom: none;
+}
+
+.item-container {
+  margin-bottom: 6px;
 }
 </style>

@@ -8,10 +8,12 @@ let password = "";
 <template>
   <html>
     <body>
-      <div class="container">
+      <header>
         <div class="title">
           <h1>CREATE<br>ACCOUNT</h1>
         </div>
+      </header>
+      <main>
         <div class="image">
           <img class="account_image" src="./images/account_circle_FILL0_wght400_GRAD0_opsz24.svg"/>
         </div>
@@ -22,7 +24,7 @@ let password = "";
         <div class="buttons">
           <CustomButton type="button">CREATE</CustomButton>
         </div>
-      </div>
+      </main>
     </body>
   </html>
 </template>
@@ -33,7 +35,7 @@ html, body{
   height: 100%;
 }
 
-.container {
+body {
   background: #133973;
   position:absolute;
   top:0;
