@@ -112,13 +112,6 @@ select{
   align-items: center;
 }
 
-.labelWithSelect {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 15px;
-}
-
 select {
   margin-left: 5px;
 }
