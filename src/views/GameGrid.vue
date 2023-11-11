@@ -23,8 +23,8 @@
     </article>
     <footer>
       <div class="players">
-        <div class="player" v-for="player in players" :key="player.name">
-          <h2>{{ player.name }}</h2>
+        <div class="player" v-for="(player, index) in players" :key="player.name">
+          <h2 :class="{'player-name-green': index === 0, 'player-name-red': index === 1}">{{ player.name }}</h2>
           <progress :value="player.hp" max="30"></progress>
           <span>{{ player.hp }}/30HP</span>
           <ol>
@@ -181,6 +181,13 @@ td.filled::after {
   margin: 0.5rem;
 }
 
+.player-name-green {
+  color: #31bc37;
+}
+
+.player-name-red {
+  color: #a82828;
+}
 
 
 .player-circle {
