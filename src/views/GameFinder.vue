@@ -1,8 +1,10 @@
 <script setup>
-import CustomLabel from "./components/CustomLabel.vue";
+import TextInput from "./components/TextInput.vue";
+import CustomButton2 from "./components/CustomButton2.vue";
 
-let totalGames = 'TOTAL GAMES = 85';
-let winrate = 'WINRATE 58,67%';
+let avaliableGames = 'AVAILABLE GAMES';
+let finishedGames = 'FINISHED GAMES';
+let date = 'DATE';
 
 const items = [];
 let i;
@@ -13,29 +15,12 @@ const randomDates = Array.from({ length: 50 }, () => {
   return randomDate.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
 });
 
-const randomNames = [
-  'Alice', 'Bob', 'Charlie', 'David', 'Eva', 'Frank', 'Grace', 'Henry', 'Ivy', 'Jack',
-  'Kelly', 'Leo', 'Mia', 'Noah', 'Olivia', 'Paul', 'Quinn', 'Ryan', 'Sophia', 'Tom',
-  'Ursula', 'Vincent', 'Wendy', 'Xander', 'Yvonne', 'Zane'
-];
-
-const getRandomName = () => {
-  const randomIndex = Math.floor(Math.random() * randomNames.length);
-  return randomNames[randomIndex];
-};
-
-const getRandomNumber = () => {
-  const randomNumber = Math.floor(Math.random() * 200) + 1;
-  return randomNumber;
-}
 
 for (i = 0; i < 50; i++) {
   items.push({
     id: i,
     field1: randomDates[i],
-    field2: getRandomNumber() +' HP',
-    field3: getRandomName() + '        +' + getRandomNumber() + 'XP        +' + getRandomNumber() + '$' + '        Fireball' + '        W',
-    field4: getRandomName() + '        +' + getRandomNumber() + 'XP        +' + getRandomNumber() + '$' + '        -' + '        L',
+    field2: '1/2' + '    |    ' + '2X2' + '    |    ' + '40HP',
   });
 }
 </script>
@@ -49,11 +34,17 @@ for (i = 0; i < 50; i++) {
       <img class="back" src="./images/arrow_back_FILL0_wght400_GRAD0_opsz24.svg"/>
     </div>
     <div class="title">
-      <h1>STATISTICS</h1>
+      <h1>GAME<br>FINDER</h1>
     </div>
-    <div class="labels">
-      <CustomLabel id="Xp" :labelText="totalGames"></CustomLabel>
-      <CustomLabel id="Lvl" :labelText="winrate"></CustomLabel>
+    <div class="buttons">
+      <CustomButton2 type="button">AVAILABLE GAMES</CustomButton2>
+      <CustomButton2 type="button">FINISHED GAMES</CustomButton2>
+      <br>
+      <br>
+    </div>
+    <div class="form">
+      <img class="search" src="./images/8666693_search_icon.svg"/>
+      <TextInput id="date" placeholder="Date" v-model="date" />
     </div>
     <div class="scroll-list">
       <a href="#" v-for="item in items" :key="item.id">
@@ -72,6 +63,7 @@ for (i = 0; i < 50; i++) {
   </body>
   </html>
 </template>
+
 
 
 <style scoped>
@@ -115,6 +107,13 @@ html, body{
   margin-left: 10px;
 }
 
+.search {
+  width: 30px;
+  height: auto;
+  margin-right: 10px;
+  margin-bottom: 20px;
+}
+
 .title{
   margin-top: 20px;
   justify-content: center;
@@ -135,6 +134,7 @@ html, body{
   text-decoration: none;
   border-bottom: 4px solid #133973;
   background: #EBEF25;
+  height: 60px;
   width: 275px;
   border-radius: 15px;
 }
@@ -147,12 +147,18 @@ html, body{
   background-color: #777;
 }
 
+.form {
+  width: 200px;
+  display: flex;
+  align-items: center;
+}
+
 .item-content {
   text-align: left;
 }
 
 .item-field {
-  text-align: left;
+  text-align: center;
 }
 
 .item-field1 {
@@ -162,7 +168,7 @@ html, body{
 
 .item-field2 {
   font-size: 1.2em;
-  color: steelblue;
+  color: #435283;
 }
 
 </style>

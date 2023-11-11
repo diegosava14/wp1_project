@@ -1,41 +1,17 @@
 <script setup>
-import CustomLabel from "./components/CustomLabel.vue";
+import CustomButton from "./components/CustomButton.vue";
 
-let totalGames = 'TOTAL GAMES = 85';
-let winrate = 'WINRATE 58,67%';
+let textXp = 'XP';
 
 const items = [];
 let i;
 
-const randomDates = Array.from({ length: 50 }, () => {
-  const randomTime = Math.random() * Date.now();
-  const randomDate = new Date(randomTime);
-  return randomDate.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
-});
-
-const randomNames = [
-  'Alice', 'Bob', 'Charlie', 'David', 'Eva', 'Frank', 'Grace', 'Henry', 'Ivy', 'Jack',
-  'Kelly', 'Leo', 'Mia', 'Noah', 'Olivia', 'Paul', 'Quinn', 'Ryan', 'Sophia', 'Tom',
-  'Ursula', 'Vincent', 'Wendy', 'Xander', 'Yvonne', 'Zane'
-];
-
-const getRandomName = () => {
-  const randomIndex = Math.floor(Math.random() * randomNames.length);
-  return randomNames[randomIndex];
-};
-
-const getRandomNumber = () => {
-  const randomNumber = Math.floor(Math.random() * 200) + 1;
-  return randomNumber;
-}
-
 for (i = 0; i < 50; i++) {
   items.push({
     id: i,
-    field1: randomDates[i],
-    field2: getRandomNumber() +' HP',
-    field3: getRandomName() + '        +' + getRandomNumber() + 'XP        +' + getRandomNumber() + '$' + '        Fireball' + '        W',
-    field4: getRandomName() + '        +' + getRandomNumber() + 'XP        +' + getRandomNumber() + '$' + '        -' + '        L',
+    field1: 'Fireball',
+    field2: 'X-3 Y-4',
+    field3: '3$ BUY',
   });
 }
 </script>
@@ -49,21 +25,15 @@ for (i = 0; i < 50; i++) {
       <img class="back" src="./images/arrow_back_FILL0_wght400_GRAD0_opsz24.svg"/>
     </div>
     <div class="title">
-      <h1>STATISTICS</h1>
-    </div>
-    <div class="labels">
-      <CustomLabel id="Xp" :labelText="totalGames"></CustomLabel>
-      <CustomLabel id="Lvl" :labelText="winrate"></CustomLabel>
+      <h1>BUY<br>ATTACK</h1>
     </div>
     <div class="scroll-list">
       <a href="#" v-for="item in items" :key="item.id">
         <div class="item-content">
           <div class="item-field item-field1">{{ item.field1 }}</div>
           <div class="item-field item-field2">{{ item.field2 }}</div>
-          <div class="item-field">
-            {{ item.field3 }}
-            <br />
-            {{ item.field4 }}
+          <div class="buttons">
+            <CustomButton type="button">3$ BUY</CustomButton>
           </div>
         </div>
       </a>
@@ -134,7 +104,7 @@ html, body{
   padding: 14px;
   text-decoration: none;
   border-bottom: 4px solid #133973;
-  background: #EBEF25;
+  background: #eeeeee;
   width: 275px;
   border-radius: 15px;
 }
@@ -161,8 +131,12 @@ html, body{
 }
 
 .item-field2 {
+  font-weight: bold;
   font-size: 1.2em;
-  color: steelblue;
+}
+
+.buttons {
+  text-align: end;
 }
 
 </style>
