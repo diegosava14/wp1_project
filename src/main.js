@@ -10,5 +10,5 @@ import './style.css'
 //import App from './views/StoreMenu.vue'
 //import App from './views/CreateAttack.vue'
 //import App from './views/SellAttack.vue'
-import App from './views/GameCreation.vue'
+//import App from './views/GameCreation.vue'
 createApp(App).mount('#app')

@@ -9,21 +9,23 @@ for (i = 0; i < 100; i++) {
 
 <template>
   <html>
-  <body>
-  <div class="container">
-    <div class="actionButtons">
-      <img class="back" src="./images/arrow_back_FILL0_wght400_GRAD0_opsz24.svg"/>
-    </div>
-    <div class="title">
-      <h1>BACKPACK</h1>
-    </div>
-    <div class="scroll-list">
-      <a href="#" v-for="item in items" :key="item.id">
-        {{ item.text }}
-      </a>
-    </div>
-  </div>
-  </body>
+    <body>
+      <header>
+        <div class="actionButtons">
+          <img class="back" src="./images/arrow_back_FILL0_wght400_GRAD0_opsz24.svg"/>
+        </div>
+        <div class="title">
+          <h1>BACKPACK</h1>
+        </div>
+      </header>
+      <main>
+        <div class="scroll-list">
+          <a href="#" v-for="item in items" :key="item.id">
+            {{ item.text }}
+          </a>
+        </div>
+      </main>
+    </body>
   </html>
 </template>
 
@@ -44,7 +46,7 @@ html, body{
   margin-bottom: 40px;
 }
 
-.container {
+body {
   background: #133973;
   position:absolute;
   top:0;

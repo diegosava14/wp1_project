@@ -1,7 +1,7 @@
 <template>
   <html>
     <body>
-      <div class="container">
+      <header>
         <div class="actionButtons">
           <img class="exit" src="./images/logout_FILL0_wght400_GRAD0_opsz24.svg"/>
           <img class="account" src="./images/account_circle_FILL0_wght400_GRAD0_opsz24.svg"/>
@@ -9,14 +9,16 @@
         <div class="title">
           <h1>BATTLE<br>ARENA</h1>
         </div>
-        <div class="buttons">
-          <CustomButton type="button">PLAY</CustomButton>
-          <CustomButton type="button">GAME FINDER</CustomButton>
-          <CustomButton type="button">CREATE GAME</CustomButton>
-          <CustomButton type="button">RANKING</CustomButton>
-          <CustomButton type="button">STORE</CustomButton>
-        </div>
-      </div>
+      </header>
+        <main>
+          <div class="buttons">
+            <CustomButton type="button">PLAY</CustomButton>
+            <CustomButton type="button">GAME FINDER</CustomButton>
+            <CustomButton type="button">CREATE GAME</CustomButton>
+            <CustomButton type="button">RANKING</CustomButton>
+            <CustomButton type="button">STORE</CustomButton>
+          </div>
+        </main>
     </body>
   </html>
 </template>
@@ -31,7 +33,7 @@ html, body{
   height: 100%;
 }
 
-.container {
+body {
   background: #133973;
   position:absolute;
   top:0;

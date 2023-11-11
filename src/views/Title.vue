@@ -1,10 +1,12 @@
 <template>
   <html>
     <body>
-      <div class="container">
+      <header>
         <div class="title">
           <h1>BATTLE<br>ARENA</h1>
         </div>
+      </header>
+      <main>
         <div class="form">
           <TextInput id="username" placeholder="Username" v-model="username" />
           <TextInput id="password" placeholder="Password" v-model="password" />
@@ -13,7 +15,7 @@
           <CustomButton type="button">JOIN</CustomButton>
           <CustomButton type="button">CREATE</CustomButton>
         </div>
-      </div>
+      </main>
     </body>
   </html>
 </template>
@@ -32,7 +34,7 @@ html, body{
   height: 100%;
 }
 
-.container {
+body{
   background: #133973;
   position:absolute;
   top:0;

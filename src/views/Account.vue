@@ -10,13 +10,15 @@ let textCoins = 'COINS';
 <template>
   <html>
     <body>
-      <div class="container">
+      <header>
         <div class="actionButtons">
           <img class="back" src="./images/arrow_back_FILL0_wght400_GRAD0_opsz24.svg"/>
         </div>
         <div class="title">
           <h1>Xx_YOU_xX</h1>
         </div>
+      </header>
+      <main>
         <div class="image">
           <img class="account_image" src="./images/account_circle_FILL0_wght400_GRAD0_opsz24.svg"/>
         </div>
@@ -46,7 +48,7 @@ let textCoins = 'COINS';
           <CustomButton type="button">BACKPACK</CustomButton>
           <CustomButton type="button">DELETE</CustomButton>
         </div>
-      </div>
+      </main>
     </body>
   </html>
 </template>
@@ -68,7 +70,7 @@ html, body{
   margin-bottom: 20px;
 }
 
-.container {
+body {
   background: #133973;
   position:absolute;
   top:0;
