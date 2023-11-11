@@ -11,4 +11,7 @@ import App from './views/Backpack.vue'
 //import App from './views/CreateAttack.vue'
 //import App from './views/SellAttack.vue'
 //import App from './views/GameCreation.vue'
+//import App from './views/GameGrid.vue'
+import App from './views/GameReplay.vue'
+
 createApp(App).mount('#app')
