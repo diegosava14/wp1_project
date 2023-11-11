@@ -14,7 +14,7 @@
         <tbody>
         <tr v-for="(row, rowIndex) in grid" :key="rowIndex">
           <td v-for="(cell, cellIndex) in row" :key="cellIndex" :class="{ 'filled': cell }">
-            <div v-if="players[0].position.x === cellIndex && players[0].position.y === rowIndex" class="player-circle blue"></div>
+            <div v-if="players[0].position.x === cellIndex && players[0].position.y === rowIndex" class="player-circle green"></div>
             <div v-if="players[1].position.x === cellIndex && players[1].position.y === rowIndex" class="player-circle red"></div>
           </td>
         </tr>
@@ -142,7 +142,7 @@ td.filled::after {
   border-radius: 50%;
 }
 
-.blue {
+.green {
   background-color: #166D1A;
 }
 
