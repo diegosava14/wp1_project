@@ -2,7 +2,7 @@
   <section>
     <nav>
       <button>&larr;</button>
-      <time datetime="2023-07-11">7/11/23</time>
+      <time datetime="2023-11-07">7/11/23</time>
     </nav>
     <article>
       <table>
@@ -13,9 +13,9 @@
         </thead>
         <tbody>
         <tr v-for="(row, rowIndex) in grid" :key="rowIndex">
-          <td v-for="(cell, cellIndex) in row" :key="cellIndex" :class="{ 'filled': cell }">
-            <div v-if="players[0].position.x === cellIndex && players[0].position.y === rowIndex" class="player-circle green"></div>
-            <div v-if="players[1].position.x === cellIndex && players[1].position.y === rowIndex" class="player-circle red"></div>
+          <td v-for="(cell, cellIndex) in row" :key="cellIndex" :class="{ 'filled': isCellActiveForAnyPlayer(cellIndex, rowIndex) }">
+            <img v-if="players[0].position.x === cellIndex && players[0].position.y === rowIndex" class="player-image" src="./images/greenCircle.png" :style="{ transform: 'rotate(' + players[0].rotation + 'deg)' }" />
+            <img v-if="players[1].position.x === cellIndex && players[1].position.y === rowIndex" class="player-image" src="./images/redCircle.png" :style="{ transform: 'rotate(' + players[1].rotation + 'deg)' }" />
           </td>
         </tr>
         </tbody>
@@ -28,7 +28,9 @@
           <progress :value="player.hp" max="30"></progress>
           <span>{{ player.hp }}/30HP</span>
           <ol>
-            <li v-for="attack in player.attacks" :key="attack">{{ attack }}</li>
+            <li v-for="attack in player.attacks" :key="attack" @click="attackClicked(attack)">
+              {{ attack }}
+            </li>
           </ol>
         </div>
       </div>
@@ -37,20 +39,65 @@
 </template>
 
 <script>
+
+//init data to display
 export default {
-  name: 'GameView',
+
+  name: 'Game',
   data() {
     return {
-      grid: this.createGrid(10, 10), //grid size
+      grid: this.createGrid(10, 10),
       players: [
-        { name: 'MANOLITO', hp: 25, attacks: ['Fireball', 'Magic Shield', 'Pit of Doom'], position: { x: 1, y: 1 } }, // Position for player 1
-        { name: 'PEPITO', hp: 10, attacks: ['Fireball', 'Magic Shield', 'Pit of Doom'], position: { x: 8, y: 8 } }, // Position for player 2
+        { name: 'MANOLITO', hp: 25, attacks: ['Fireball', 'Magic Shield', 'Pit of Doom'], position: { x: 1, y: 1 }, direction: 'right', rotation: 180,},
+        { name: 'PEPITO', hp: 10, attacks: ['Fireball', 'Magic Shield', 'Pit of Doom'], position: { x: 8, y: 8 }, direction: 'down',  rotation: 270,},
       ],
+
     };
   },
+
+
+
   methods: {
     createGrid(rows, cols) {
       return Array.from({ length: rows }, () => Array.from({ length: cols }, () => false));
+    },
+
+
+    //checks either of the player's highlighted cells
+    isCellActiveForAnyPlayer(cellX, cellY) {
+      return this.players.some(player => this.isCellActive(cellX, cellY, player));
+    },
+
+    ///checks what cell to highlight
+    isCellActive(cellX, cellY, player) {
+
+      const playerDirection = this.getDirectionFromRotation(player.rotation);
+
+      const directionOffsets = {
+        right: { x: 1, y: 0 },
+        up: { x: 0, y: -1 },
+        down: { x: 0, y: 1 },
+        left: { x: -1, y: 0 },
+      };
+      const offset = directionOffsets[playerDirection];
+      if (!offset) return false;
+
+      for (let x = player.position.x + offset.x, y = player.position.y + offset.y;
+           x < this.grid[0].length && y < this.grid.length && x >= 0 && y >= 0;
+           x += offset.x, y += offset.y) {
+        if (x === cellX && y === cellY) return true;
+      }
+      return false;
+    },
+
+    //identifies how much to turn the image representing each player
+    getDirectionFromRotation(rotation) {
+      const directions = {0: 'right', 270: 'up', 180: 'left', 90: 'down'};
+      return directions[rotation];
+    },
+
+    attackClicked(attack) {
+      ///What happens when the attack gets clicked onto
     },
   },
 };
@@ -58,6 +105,11 @@ export default {
 
 
 <style scoped>
+
+/*assuming we click to perform attack*/
+ol li {
+  cursor: pointer;
+}
 
 
 section {
@@ -98,7 +150,6 @@ td {
   border: 2px solid #000;
 }
 
-
 td::after {
   content: '';
   display: block;
@@ -111,12 +162,9 @@ td::after {
   opacity: 0;
 }
 
-
 td.filled::after {
   opacity: 1;
 }
-
-
 
 .players {
   display: flex;
@@ -136,10 +184,10 @@ td.filled::after {
 
 
 .player-circle {
-  position: absolute;
-  width: 70%;
-  height: 70%;
-  border-radius: 50%;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
 }
 
 .green {
@@ -153,5 +201,13 @@ td.filled::after {
 progress {
   width: 100%;
 }
+
+.player-image {
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+}
+
+
 </style>
 
