@@ -99,7 +99,7 @@ body {
   display: block;
   color: black;
   text-align: left;
-  padding: 14px;
+  padding: 10px;
   text-decoration: none;
   background: #EBEF25;
   width: 250px;
