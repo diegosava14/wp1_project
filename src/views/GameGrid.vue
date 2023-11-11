@@ -41,7 +41,7 @@ export default {
   name: 'GameView',
   data() {
     return {
-      grid: this.createGrid(10, 10), // Assuming a 10x10 grid for example
+      grid: this.createGrid(10, 10), //grid size
       players: [
         { name: 'MANOLITO', hp: 25, attacks: ['Fireball', 'Magic Shield', 'Pit of Doom'], position: { x: 1, y: 1 } }, // Position for player 1
         { name: 'PEPITO', hp: 10, attacks: ['Fireball', 'Magic Shield', 'Pit of Doom'], position: { x: 8, y: 8 } }, // Position for player 2
