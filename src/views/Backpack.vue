@@ -6,7 +6,7 @@ for (i = 0; i < 100; i++) {
   items.push({
     id: i,
     text: {
-      attack: 'Attack' + i,
+      attack: 'Attack ' + i,
       power: 'Power --> ' + 1,
       equipped: 'Equipped --> YES',
       onSale: 'On Sale --> NO'
@@ -30,10 +30,10 @@ for (i = 0; i < 100; i++) {
         <div class="scroll-list">
           <div v-for="item in items" :key="item.id" class="item-container">
             <a href="#">
-              <p class="item-info">{{ item.text.attack }}</p>
-              <p class="item-info">{{ item.text.power }}</p>
-              <p class="item-info">{{ item.text.equipped }}</p>
-              <p class="item-info">{{ item.text.onSale }}</p>
+              <p class="item-name">{{ item.text.attack }}</p>
+              <p class="item-power">{{ item.text.power }}</p>
+              <p class="item-equipped">{{ item.text.equipped }}</p>
+              <p class="item-sale">{{ item.text.onSale }}</p>
             </a>
           </div>
         </div>
@@ -98,10 +98,9 @@ body {
 .scroll-list a {
   display: block;
   color: black;
-  text-align: center;
+  text-align: left;
   padding: 14px;
   text-decoration: none;
-  border-bottom: 4px solid #133973;
   background: #EBEF25;
   width: 250px;
   border-radius: 15px;
@@ -113,5 +112,11 @@ body {
 
 .item-container {
   margin-bottom: 6px;
+}
+
+.item-name {
+  font-weight: bold;
+  color: steelblue;
+  font-size: 1.2em;
 }
 </style>
