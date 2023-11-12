@@ -10,21 +10,23 @@ let yCoord = "";
 
 <template>
   <html>
-  <body>
-  <div class="container">
-    <div class="title">
-      <h1>CREATE<br>ATTACK</h1>
-    </div>
-    <div class="form">
-      <TextInput id="name" placeholder="Name" v-model="name" />
-      <TextInput id="xCoord" placeholder="X" v-model="xCoord" />
-      <TextInput id="yCoord" placeholder="Y" v-model="yCoord" />
-    </div>
-    <div class="buttons">
-      <CustomButton type="button">CREATE</CustomButton>
-    </div>
-  </div>
-  </body>
+    <body>
+      <header>
+        <div class="title">
+          <h1>CREATE<br>ATTACK</h1>
+        </div>
+      </header>
+      <main>
+        <div class="form">
+          <TextInput id="name" placeholder="Name" v-model="name" />
+          <TextInput id="xCoord" placeholder="X" v-model="xCoord" />
+          <TextInput id="yCoord" placeholder="Y" v-model="yCoord" />
+        </div>
+        <div class="buttons">
+          <CustomButton type="button">CREATE</CustomButton>
+        </div>
+      </main>
+    </body>
   </html>
 </template>
 
@@ -34,7 +36,7 @@ html, body{
   height: 100%;
 }
 
-.container {
+body {
   background: #133973;
   position:absolute;
   top:0;

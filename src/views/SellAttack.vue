@@ -9,20 +9,22 @@ let price = "";
 
 <template>
   <html>
-  <body>
-  <div class="container">
-    <div class="title">
-      <h1>SELL<br>ATTACK</h1>
-    </div>
-    <div class="form">
-      <TextInput id="attack" placeholder="Attack" v-model="attack" />
-      <TextInput id="price" placeholder="Price" v-model="price" />
-    </div>
-    <div class="buttons">
-      <CustomButton type="button">SELL</CustomButton>
-    </div>
-  </div>
-  </body>
+    <body>
+      <header>
+        <div class="title">
+          <h1>SELL<br>ATTACK</h1>
+        </div>
+      </header>
+      <main>
+        <div class="form">
+          <TextInput id="attack" placeholder="Attack" v-model="attack" />
+          <TextInput id="price" placeholder="Price" v-model="price" />
+        </div>
+        <div class="buttons">
+          <CustomButton type="button">SELL</CustomButton>
+        </div>
+      </main>
+    </body>
   </html>
 </template>
 
@@ -32,7 +34,7 @@ html, body{
   height: 100%;
 }
 
-.container {
+body {
   background: #133973;
   position:absolute;
   top:0;

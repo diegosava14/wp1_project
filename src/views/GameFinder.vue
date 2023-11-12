@@ -28,39 +28,41 @@ for (i = 0; i < 50; i++) {
 
 <template>
   <html>
-  <body>
-  <div class="container">
-    <div class="actionButtons">
-      <img class="back" src="./images/arrow_back_FILL0_wght400_GRAD0_opsz24.svg"/>
-    </div>
-    <div class="title">
-      <h1>GAME<br>FINDER</h1>
-    </div>
-    <div class="buttons">
-      <CustomButton2 type="button">AVAILABLE GAMES</CustomButton2>
-      <CustomButton2 type="button">FINISHED GAMES</CustomButton2>
-      <br>
-      <br>
-    </div>
-    <div class="form">
-      <img class="search" src="./images/8666693_search_icon.svg"/>
-      <TextInput id="date" placeholder="Date" v-model="date" />
-    </div>
-    <div class="scroll-list">
-      <a href="#" v-for="item in items" :key="item.id">
-        <div class="item-content">
-          <div class="item-field item-field1">{{ item.field1 }}</div>
-          <div class="item-field item-field2">{{ item.field2 }}</div>
-          <div class="item-field">
-            {{ item.field3 }}
-            <br />
-            {{ item.field4 }}
-          </div>
+    <body>
+      <header>
+        <div class="actionButtons">
+          <img class="back" src="./images/arrow_back_FILL0_wght400_GRAD0_opsz24.svg"/>
         </div>
-      </a>
-    </div>
-  </div>
-  </body>
+        <div class="title">
+          <h1>GAME<br>FINDER</h1>
+        </div>
+      </header>
+      <main>
+        <div class="buttons">
+          <CustomButton2 type="button">AVAILABLE GAMES</CustomButton2>
+          <CustomButton2 type="button">FINISHED GAMES</CustomButton2>
+          <br>
+          <br>
+        </div>
+        <div class="form">
+          <img class="search" src="./images/8666693_search_icon.svg"/>
+          <TextInput id="date" placeholder="Date" v-model="date" />
+        </div>
+        <div class="scroll-list">
+          <a href="#" v-for="item in items" :key="item.id">
+            <div class="item-content">
+              <div class="item-field item-field1">{{ item.field1 }}</div>
+              <div class="item-field item-field2">{{ item.field2 }}</div>
+              <div class="item-field">
+                {{ item.field3 }}
+                <br />
+                {{ item.field4 }}
+              </div>
+            </div>
+          </a>
+        </div>
+      </main>
+    </body>
   </html>
 </template>
 
@@ -83,7 +85,7 @@ html, body{
   margin-bottom: 40px;
 }
 
-.container {
+body {
   background: #133973;
   position:absolute;
   top:0;

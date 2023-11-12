@@ -8,39 +8,41 @@ let textPlayersHP = 'Player HP';
 
 <template>
   <html>
-  <body>
-  <div class="container">
-    <div class="actionButtons">
-      <img class="back" src="./images/arrow_back_FILL0_wght400_GRAD0_opsz24.svg"/>
-    </div>
-    <div class="title">
-      <h1>GAME<br>CREATION</h1>
-    </div>
-    <div class="content">
-      <div class="labels">
-        <div class="greenRectangle">
-          <CustomLabel id="Arena's size" :labelText="textArenaSize"></CustomLabel>
-          <select>
-            <option value="Option1">2X2</option>
-            <option value="Option2">3X3</option>
-            <option value="Option3">4X4</option>
-          </select>
+    <body>
+      <header>
+        <div class="actionButtons">
+          <img class="back" src="./images/arrow_back_FILL0_wght400_GRAD0_opsz24.svg"/>
         </div>
-        <div class="greenRectangle">
-          <CustomLabel id="Player's HP" :labelText="textPlayersHP"></CustomLabel>
-          <select>
-            <option value="Option1">10HP</option>
-            <option value="Option2">25HP</option>
-            <option value="Option3">50HP</option>
-          </select>
+        <div class="title">
+          <h1>GAME<br>CREATION</h1>
         </div>
-      </div>
-      <div class="buttons">
-        <CustomButton type="button">ENTER GAME</CustomButton>
-      </div>
-    </div>
-  </div>
-  </body>
+      </header>
+      <main>
+        <div class="content">
+          <div class="labels">
+            <div class="greenRectangle">
+              <CustomLabel id="Arena's size" :labelText="textArenaSize"></CustomLabel>
+              <select>
+                <option value="Option1">2X2</option>
+                <option value="Option2">3X3</option>
+                <option value="Option3">4X4</option>
+              </select>
+            </div>
+            <div class="greenRectangle">
+              <CustomLabel id="Player's HP" :labelText="textPlayersHP"></CustomLabel>
+              <select>
+                <option value="Option1">10HP</option>
+                <option value="Option2">25HP</option>
+                <option value="Option3">50HP</option>
+              </select>
+            </div>
+          </div>
+          <div class="buttons">
+            <CustomButton type="button">ENTER GAME</CustomButton>
+          </div>
+        </div>
+      </main>
+    </body>
   </html>
 </template>
 
@@ -61,7 +63,7 @@ html, body{
   margin-bottom: 20px;
 }
 
-.container {
+body {
   background: #133973;
   position:absolute;
   top:0;
