@@ -14,6 +14,7 @@ import './style.css'
 //import App from './views/Statistics.vue'
 //import App from './views/BuyAttack.vue'
 import App from './views/GameFinder.vue'
+//import App from './views/GameCreation.vue'
 //import App from './views/GameGrid.vue'
 //import App from './views/GameReplay.vue'
 createApp(App).mount('#app')
