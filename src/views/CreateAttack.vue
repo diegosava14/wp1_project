@@ -13,6 +13,7 @@ let yCoord = "";
     <body>
       <header>
         <div class="title">
+          <img class="back" src="./images/arrow_back_FILL0_wght400_GRAD0_opsz24.svg"/>
           <h1>CREATE<br>ATTACK</h1>
         </div>
       </header>
@@ -48,6 +49,16 @@ body {
   flex-direction: column;
   align-items: center;
   margin: 0 auto 30px;
+}
+
+.back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 30px;
+  height: auto;
+  margin-top: 10px;
+  margin-left: 10px;
 }
 
 .title h1 {

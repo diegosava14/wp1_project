@@ -1,43 +1,3 @@
-<template>
-  <section>
-    <nav>
-      <button>&larr;</button>
-      <time datetime="2023-11-07">7/11/23</time>
-    </nav>
-    <article>
-      <table>
-        <thead>
-        <tr>
-          <th scope="col" v-for="n in grid[0].length" :key="n"></th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr v-for="(row, rowIndex) in grid" :key="rowIndex">
-          <td v-for="(cell, cellIndex) in row" :key="cellIndex" :class="{ 'filled': isCellActiveForAnyPlayer(cellIndex, rowIndex) }">
-            <img v-if="players[0].position.x === cellIndex && players[0].position.y === rowIndex" class="player-dot" src="./images/greenCircle.png" :style="{ transform: 'rotate(' + players[0].rotation + 'deg)' }" />
-            <img v-if="players[1].position.x === cellIndex && players[1].position.y === rowIndex" class="player-dot" src="./images/redCircle.png" :style="{ transform: 'rotate(' + players[1].rotation + 'deg)' }" />
-          </td>
-        </tr>
-        </tbody>
-      </table>
-    </article>
-    <footer>
-      <div class="players">
-        <div class="player" v-for="(player, index) in players" :key="player.name">
-          <h2 :class="{'player-name-green': index === 0, 'player-name-red': index === 1}">{{ player.name }}</h2>
-          <progress :value="player.hp" max="30"></progress>
-          <span>{{ player.hp }}/30HP</span>
-          <ol>
-            <li v-for="attack in player.attacks" :key="attack" @click="attackClicked(attack)">
-              {{ attack }}
-            </li>
-          </ol>
-        </div>
-      </div>
-    </footer>
-  </section>
-</template>
-
 <script>
 
 //init data to display
@@ -103,6 +63,45 @@ export default {
 };
 </script>
 
+<template>
+  <section>
+    <nav>
+      <button>&larr;</button>
+      <time datetime="2023-11-07">7/11/23</time>
+    </nav>
+    <article>
+      <table>
+        <thead>
+        <tr>
+          <th scope="col" v-for="n in grid[0].length" :key="n"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr v-for="(row, rowIndex) in grid" :key="rowIndex">
+          <td v-for="(cell, cellIndex) in row" :key="cellIndex" :class="{ 'filled': isCellActiveForAnyPlayer(cellIndex, rowIndex) }">
+            <img v-if="players[0].position.x === cellIndex && players[0].position.y === rowIndex" class="player-dot" src="./images/greenCircle.png" :style="{ transform: 'rotate(' + players[0].rotation + 'deg)' }" />
+            <img v-if="players[1].position.x === cellIndex && players[1].position.y === rowIndex" class="player-dot" src="./images/redCircle.png" :style="{ transform: 'rotate(' + players[1].rotation + 'deg)' }" />
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </article>
+    <footer>
+      <div class="players">
+        <div class="player" v-for="(player, index) in players" :key="player.name">
+          <h2 :class="{'player-name-green': index === 0, 'player-name-red': index === 1}">{{ player.name }}</h2>
+          <progress :value="player.hp" max="30"></progress>
+          <span>{{ player.hp }}/30HP</span>
+          <ol>
+            <li v-for="attack in player.attacks" :key="attack" @click="attackClicked(attack)">
+              {{ attack }}
+            </li>
+          </ol>
+        </div>
+      </div>
+    </footer>
+  </section>
+</template>
 
 <style scoped>
 

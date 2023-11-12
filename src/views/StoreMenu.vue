@@ -7,8 +7,7 @@ import CustomButton from "./components/CustomButton.vue";
   <body>
   <div class="container">
     <div class="actionButtons">
-      <img class="exit" src="./images/logout_FILL0_wght400_GRAD0_opsz24.svg"/>
-      <img class="account" src="./images/account_circle_FILL0_wght400_GRAD0_opsz24.svg"/>
+      <img class="back" src="./images/arrow_back_FILL0_wght400_GRAD0_opsz24.svg"/>
     </div>
     <div class="title">
       <h1>STORE</h1>
@@ -43,7 +42,7 @@ html, body{
   margin: 0 auto 30px;
 }
 
-.exit {
+.back {
   position: absolute;
   top: 0;
   left: 0;
